@@ -14,8 +14,11 @@ public class LogExecutionTimeAspect {
 
     @Around("@annotation(net.manikiam.boundary.timinglibrary.LogExecutionTime)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        
+
+        long start = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();
+        long executionTime = System.currentTimeMillis() - start;
+        log.info("{} executed in {}ms", joinPoint.getSignature(), executionTime);
         return proceed;
     }
 }
