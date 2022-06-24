@@ -61,7 +61,7 @@ release {
     buildTasks = ['build']
     pushReleaseVersionBranch = 'main'
     git {
-        requireBranch = ""
+        requireBranch = "/release/"
         pushToRemote = 'origin'
         pushToBranchPrefix = ''
     }
