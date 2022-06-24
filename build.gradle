@@ -59,6 +59,7 @@ tasks.named('test') {
 release {
     tagTemplate = '$name-$version'
     buildTasks = ['build']
+    pushReleaseVersionBranch = 'release/$name-$version'
     git {
         requireBranch = ""
         pushToRemote = 'origin'
