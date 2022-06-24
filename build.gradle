@@ -62,7 +62,7 @@ release {
     pushReleaseVersionBranch = "main"
     scmAdapters = [net.researchgate.release.GitAdapter]
     git {
-        requireBranch = "/release/"
+        requireBranch = /release\\/.*/
         pushToRemote = 'origin'
         pushToBranchPrefix = ''
     }
