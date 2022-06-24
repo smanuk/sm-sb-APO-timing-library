@@ -60,6 +60,7 @@ release {
     tagTemplate = '$name-$version'
     buildTasks = ['build']
     pushReleaseVersionBranch = 'main'
+    scmAdapters = [net.researchgate.release.GitAdapter]
     git {
         requireBranch = "/release/"
         pushToRemote = 'origin'
