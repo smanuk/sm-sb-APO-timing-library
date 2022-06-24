@@ -59,7 +59,7 @@ tasks.named('test') {
 release {
     tagTemplate = '$name-$version'
     buildTasks = ['build']
-    pushReleaseVersionBranch = 'main'
+    pushReleaseVersionBranch = "release/$name-$version"
     scmAdapters = [net.researchgate.release.GitAdapter]
     git {
         requireBranch = "/release/"
