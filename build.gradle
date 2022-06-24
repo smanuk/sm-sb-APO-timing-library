@@ -3,11 +3,19 @@ plugins {
     id 'org.springframework.boot' version '2.6.7'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'maven-publish'
+    id 'net.researchgate.release' version '2.8.1'
 }
 
 group 'net.manikiam'
-version '1.0-SNAPSHOT'
 sourceCompatibility = '11'
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
 
 configurations {
     compileOnly {
@@ -46,4 +54,16 @@ publishing {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+release {
+    tagTemplate = '$name-$version'
+    buildTasks = ['build']
+    pushReleaseVersionBranch = "main"
+    scmAdapters = [net.researchgate.release.GitAdapter]
+    git {
+        requireBranch = /release\\/.*/
+        pushToRemote = 'origin'
+        pushToBranchPrefix = ''
+    }
 }
