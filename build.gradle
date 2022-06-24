@@ -52,7 +52,7 @@ release {
     tagTemplate = '$name-$version'
     buildTasks = ['build']
     git {
-        requireBranch = ''
+        requireBranch = ""
         pushToRemote = 'origin'
         pushToBranchPrefix = ''
     }
